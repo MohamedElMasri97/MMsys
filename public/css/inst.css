@@ -1,0 +1,44 @@
+.addinst{
+    background:rgb(97, 145, 216);
+    transition: background-color 0.3s ease-in-out;
+}
+.addinst:hover{
+    background: rgb(95, 200, 215);
+}
+.bgred{
+    background:red;
+}
+.instbubbleon{
+    background-color: rgba(0, 140, 0, 0.7);
+    transition: background-color 0.3s ease-in-out
+}
+.instbubbleon:hover{
+    background-color: rgba(114, 214, 114, 1);
+}
+.instbubbleoff{
+    background-color: rgba(230, 164, 78, 0.7);
+    transition: background-color 0.3s ease-in-out
+}
+.instbubbleoff:hover{
+    background-color: rgba(230, 164, 78, 1);
+}
+.white{
+    color:white;
+    text-decoration: none;
+}.white:hover{
+    color:white;
+    text-decoration: none;
+}
+.information{
+    background-color: rgb(0, 0, 0,0.15);
+}
+.infofont{
+    color:rgba(0, 0, 0, 0.576);
+}
+.xxsmall{
+
+    font-size: xx-small;
+}
+.hidden{
+    display: none;
+}

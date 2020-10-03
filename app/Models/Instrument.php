@@ -9,14 +9,22 @@ class Instrument extends Model
 {
     use HasFactory;
 
-    public function instrumentsMessages()
+    public $fillable = [
+        'name','refinstrument_id','serialport','netport','ip'
+    ];
+
+    public function instrumentsMessage()
     {
         return $this->hasMany('App\Models\InstrumentsMessage');
     }
 
+    public function refinstrument()
+    {
+        return $this->belongsTo('App\Models\Refinstrument');
+    }
 
     public function samples()
     {
-        return $this->hasMany('App\Models\Sample');
+        return $this->hasMany('App\Models\result');
     }
 }

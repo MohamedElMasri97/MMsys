@@ -16,6 +16,12 @@ class CreateInstrumentsTable extends Migration
         Schema::create('instruments', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('pid')->nullable();
+            $table->unsignedBigInteger('refinstrument_id');
+            $table->foreign('refinstrument_id')->references('id')->on('refinstruments');
+            $table->string('ip')->nullable();
+            $table->string('netport')->nullable();
+            $table->string('serialport')->nullable();
             $table->string('status')->default('off');
             $table->timestamps();
         });

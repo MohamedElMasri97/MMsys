@@ -8,6 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class result extends Model
 {
     use HasFactory;
+
+    public function Instrument()
+    {
+        return $this->belongsTo('App\Models\Instrument');
+    }
+
     public function sample()
     {
         return $this->belongsTo('App\Models\Sample');

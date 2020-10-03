@@ -16,6 +16,8 @@ class CreateResultsTable extends Migration
     {
         Schema::create('results', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('instrument_id');
+            $table->foreign('instrument_id')->references('id')->on('instruments');
             $table->unsignedBigInteger('sample_id');
             $table->foreign('sample_id')->references('id')->on('samples');
             $table->string('unit')->default('Undefinaed');
