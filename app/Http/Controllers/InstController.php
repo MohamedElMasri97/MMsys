@@ -2,26 +2,28 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Instrument;
-use App\Models\InstrumentsMessage;
 use App\Models\Refinstrument;
-use Illuminate\Support\Facades\Artisan;
-use Illuminate\Support\Facades\DB;
-use PhpParser\Node\Expr\ErrorSuppress;
+use App\models\InstrumentsMessage;
 use App\Models\Lims;
+use Illuminate\Http\Request;
 
-use function GuzzleHttp\Promise\queue;
 
-class InstrumentController extends Controller
+class InstController extends Controller
 {
+
     // returnst the list of available instrument
-    public function index(Request $request)
+    public function index()
     {
         $instruments = Instrument::all();
         return view('Instruments', [
             'instruments' => $instruments,
         ]);
+    }
+
+    public function test()
+    {
+        dd('love');
     }
 
     // returns the view for creating new inst
@@ -34,33 +36,35 @@ class InstrumentController extends Controller
     }
 
     // validation for the port number
-    public function isPort($s){
-        if(is_numeric($s)){
-            if((int)$s <1 or (int)$s> 65536){
+    public function isPort($s)
+    {
+        if (is_numeric($s)) {
+            if ((int)$s < 1 or (int)$s > 65536) {
                 return false;
-            }else{
+            } else {
                 return true;
             }
-        }else{
+        } else {
             return false;
         }
     }
 
     //v validate and save the new instrumetn data
-    public function newinst(Request $request){
+    public function newinst(Request $request)
+    {
         $errors = [];
-        if ($request->has('name')){
-            if(!strlen($request->input('name'))>=3){
+        if ($request->has('name')) {
+            if (!strlen($request->input('name')) >= 3) {
                 $errors[] = 'name should be longer then 3 letters';
-            } else if (count(Instrument::where('name', '=', $request->name)->get()) != 0){
+            } else if (count(Instrument::where('name', '=', $request->name)->get()) != 0) {
                 $errors[] = 'name should be unique value this value already exists';
             }
-        }else{
+        } else {
             $errors[] = 'name is required';
         }
-        if(Refinstrument::find(explode(' ', $request->input('type'))[0])){
+        if (Refinstrument::find(explode(' ', $request->input('type'))[0])) {
             if (explode(' ', $request->input('type'))[1] == 'NET') {
-                if(!$request->has('autoip')){
+                if (!$request->has('autoip')) {
                     if (ip2long($request->ip) == false) {
                         $errors[] = 'IP is not valid';
                     }
@@ -68,71 +72,81 @@ class InstrumentController extends Controller
                 if (!$this->isPort($request->netport)) {
                     $error[] = 'port number is not valid';
                 }
-            } else if(explode(' ', $request->input('type'))[1] == 'SER'){
-                if(!is_numeric($request->serialport)){
-                    if($request->serialport<1 or $request->serialport > 11){
+            } else if (explode(' ', $request->input('type'))[1] == 'SER') {
+                if (!is_numeric($request->serialport)) {
+                    if ($request->serialport < 1 or $request->serialport > 11) {
                         $errors[] = 'wrong comport number';
                     }
                 }
-            }else{
+            } else {
                 $errors[] = 'wrong commtype';
             }
-        }else{
+        } else {
             $errors[] = 'the instruement should be one of the already given on the list';
         }
-        if(count($errors) == 0){
+        if (count($errors) == 0) {
             $inst = new Instrument();
             $inst->name = $request->name;
-            if(explode(' ', $request->type)[1] == "NET"){
-                if($request->has('autoip')){
-                    $inst->ip= 'auto';
-                }else{
+            if (explode(' ', $request->type)[1] == "NET") {
+                if ($request->has('autoip')) {
+                    $inst->ip = 'auto';
+                } else {
                     $inst->ip = $request->ip;
                 }
                 $inst->netport = $request->netport;
-            }else{
+            } else {
                 $inst->serialport = $request->serialport;
             }
-            $inst->refinstrument_id = explode(' ',$request->type)[0];
+            $inst->refinstrument_id = explode(' ', $request->type)[0];
             $inst->save();
             return redirect()->route('Instrumentsview');
-        }else{
-            return redirect()->back()->withInput()->with('errors',$errors);
+        } else {
+            return redirect()->back()->withInput()->with('errors', $errors);
         }
     }
 
     // return the view of the instrument details and control
-    public function instdetails($id){
+    public function instdetails($id)
+    {
         $inst = Instrument::find($id);
-        $messages = $inst->InstrumentsMessage()->orderBy('created_at', 'DESC')->limit(100)->select('message','created_at')->get();
-        return view('instdetails',['inst'=>$inst,'messages'=>$messages]);
+        $messages = $inst->InstrumentsMessage()->orderBy('created_at', 'DESC')->limit(100)->select('message', 'created_at')->get();
+        return view('instdetails', ['inst' => $inst, 'messages' => $messages]);
+    }
+
+    public function DymindDF50($inst,$lims)
+    {
+        // dd('python ' . base_path('public\python\\') . $inst->Refinstrument->subprocess . ' ' . $inst->ip . ' ' . $inst->netport . ' ' . asset('api') . ' ' . $inst->id . ' ' . $lims->apigetter . ' ' . base_path('public\python\\') . $inst->Refinstrument->pythonpath);
+        $pid = exec('python ' . base_path('public\python\\') . $inst->Refinstrument->subprocess . ' ' . $inst->ip . ' ' . $inst->netport . ' ' . asset('api') . ' ' . $inst->id . ' ' . $lims->apigetter .' '. base_path('public\python\\') . $inst->Refinstrument->pythonpath);
+        if($pid){
+            $inst->pid = $pid;
+            $inst->save();
+        }
     }
 
     // first kills the running script using given pid if exists
     // and then check if the status is on or not, if on then
     // just make the status off, if any other state then tries to
     // start a new script
-    public function flipconnection($id){
+    public function flipconnection($id)
+    {
         $inst = Instrument::find($id);
-        if($inst)
-            {
-                if($inst->pid !=0){
-                    $x = exec('taskkill /PID ' . $inst->pid . ' /F');
-                    $inst->pid = 0;
-                    $inst->save();
-                }
-                if($inst->status!='on'){
-                    dispatch(function( ) use ($inst,$id){
-                        $inst->status = 'on';
-                        $inst->save();
-                        Artisan::call($inst->Refinstrument->command, ['id' => $id]);
-                    });
-                }else{
-                    $inst->status = 'OFF';
-                    $inst->save();
-                }
-                return redirect()->route('instrumentDetails',['id'=>$id]);
+        if ($inst) {
+            if ($inst->pid != 0) {
+                $x = exec('taskkill /PID ' . $inst->pid . ' /F');
+                $inst->pid = 0;
+                $inst->save();
             }
+            if ($inst->status != 'on') {
+                $inst->status = 'on';
+                $inst->save();
+                $lims = Lims::find(1);
+                $this->DymindDF50($inst,$lims);
+            } else {
+                $inst->status = 'OFF';
+                $inst->save();
+            }
+            return redirect()->route('instrumentDetails', ['id' => $id]);
+        }
     }
 
     // returns the status of a given instrument
@@ -141,7 +155,7 @@ class InstrumentController extends Controller
 
         $inst = Instrument::find($id);
         if ($inst) {
-            return ['status'=>$inst->status];
+            return ['status' => $inst->status];
         }
         return '';
     }
@@ -149,9 +163,8 @@ class InstrumentController extends Controller
     // storing new messages coming from the python script
     public function show(Request $request)
     {
-        if($request->has('message'))
-        {
-            if($request->has('id')){
+        if ($request->has('message')) {
+            if ($request->has('id')) {
                 $inst = Instrument::find($request->id);
                 $message = new InstrumentsMessage();
                 $message->message = $request->message;
@@ -159,7 +172,7 @@ class InstrumentController extends Controller
                 return ['status' => $inst->status];
             }
         }
-        return ['error'=>'ERR'];
+        return ['error' => 'ERR'];
     }
 
     // returns the first hundres messages of the instrument coming from the script
@@ -167,7 +180,7 @@ class InstrumentController extends Controller
     {
         if ($id) {
             $inst = Instrument::find($id);
-            return $inst->InstrumentsMessage()->orderBy('created_at', 'DESC')->limit(100)->select('message','created_at')->get();
+            return $inst->InstrumentsMessage()->orderBy('created_at', 'DESC')->limit(100)->select('message', 'created_at')->get();
         }
         return ['error' => 'ERR'];
     }
@@ -180,7 +193,7 @@ class InstrumentController extends Controller
                 $inst = Instrument::find($request->id);
                 $inst->status = $request->status;
                 $inst->save();
-                return ['status'=>$inst->status];
+                return ['status' => $inst->status];
             }
         }
         return ['error' => 'ERR'];

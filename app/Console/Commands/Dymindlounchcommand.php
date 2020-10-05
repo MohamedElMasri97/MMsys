@@ -6,14 +6,14 @@ use Illuminate\Console\Command;
 use App\Models\Instrument;
 use App\Models\Lims;
 
-class Lounch extends Command
+class DymindLounchCommand extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'Dymind {id}';
+    protected $signature = 'DymindLounchCommand {id}';
 
     /**
      * The console command description.
@@ -41,7 +41,11 @@ class Lounch extends Command
     {
         $id = $this->argument('id');
         $inst = Instrument::find($id);
-        $lims = Lims::find(1);
-        exec ('python ' . base_path('public\\') . $inst->Refinstrument->pythonpath . ' ' . $inst->ip . ' ' . $inst->port . ' ' . asset('api') . ' ' . $inst->id . ' ' . $lims->apigetter . '');
+        if($inst){
+            $lims = Lims::find(1);
+            exec ('python ' . base_path('public\\') . $inst->Refinstrument->pythonpath . ' ' . $inst->ip . ' ' . $inst->netport . ' ' . asset('api') . ' ' . $inst->id . ' ' . $lims->apigetter . '');
+        }else{
+            $this->info('the id of the instrument is not valid');
+        }
     }
 }

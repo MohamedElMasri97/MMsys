@@ -17,6 +17,7 @@ class CreateRefinstrumentsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('command');
+            $table->string('subprocess');
             $table->string('company');
             $table->string('protocol');
             $table->string('defport')->nullable();

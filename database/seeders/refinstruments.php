@@ -17,9 +17,10 @@ class refinstruments extends Seeder
             'name' => 'CBC-DF50CRP',
             'company' => 'Dymind',
             'command'=> 'Dymind',
+            'subprocess' => 'DymindDF50subprocess.py',
             'protocol' => 'HL7',
             'commtype' => 'NET',
-            'pythonpath' => 'python/dymind.py',
+            'pythonpath' => 'dymind.py',
             'imagepath' => 'images/dymind.png',
             'defport' =>'5112',
             'information'=> "DF50

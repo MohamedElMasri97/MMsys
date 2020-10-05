@@ -379,31 +379,20 @@ class Instrument():
     def postPID(self):
         pid = os.getpid()
         obj = {'id': self.id, 'pid': pid}
-        try:
-            print(self.url + '/pid')
-            print(obj)
-            resp = requests.post(self.url+'/pid',data=obj,timeout=self.requestIimeLimit)
-            print(resp.content)
-            if resp.status_code == 200:
-                return True
-            else:
-                self.err('nc')
-                return None
-        except:
-            time.sleep(10.0)
-            try:
-                print(self.url + '/pid')
-                print(obj)
-                resp = requests.post(self.url + '/pid', data=obj, timeout=self.requestIimeLimit)
-                print(resp.content)
-                if resp.status_code == 200:
-                    return True
-                else:
-                    self.err('nc')
-                    return None
-            except:
-                self.err('nc')
-                return None
+        # try:
+        print(self.url + '/pid')
+        print(obj)
+        resp = requests.post(self.url+'/pid',data=obj,timeout=self.requestIimeLimit)
+        print(resp.content)
+        if resp.status_code == 200:
+            return True
+        else:
+            self.err('nc')
+            return None
+        # except:
+        #     print('exception in PID')
+        #     self.err('nc')
+        #     return None
 
 
     def err(self, err='ERR', message='Error occurred'):
@@ -427,15 +416,15 @@ class Instrument():
         self.apigetter = apigetter
 
 if __name__=='__main__':
-    try:
-        print('main args')
-        for arg in sys.argv:
-            print(arg)
-        main = Instrument(sys.argv[1],sys.argv[2],sys.argv[3],sys.argv[4],sys.argv[5])
-        main.start1()
-    except:
-        main = Instrument()
-        main.start1()
-    # inst = Instrument()
-    # inst = []
+    # try:
+    print('main args')
+    for arg in sys.argv:
+        print(arg)
+    main = Instrument(sys.argv[1],sys.argv[2],sys.argv[3],sys.argv[4],sys.argv[5])
+    main.start1()
+    # except:
+    #     main = Instrument()
+    #     main.start1()
+
+
 

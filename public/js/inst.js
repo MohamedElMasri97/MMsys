@@ -8,3 +8,12 @@ $('.white').click(function (e) {
         $(this).prop('disabled',true);
     }
 });
+setInterval(() => {
+    $.ajax({
+        type: "get",
+        url: "url",
+        data: "",
+    }).success(function () {
+
+    });
+}, 10);

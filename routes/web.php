@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Models\Instrument;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,8 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 })->name('Home');
 
-Route::get('Instruments', [\App\Http\Controllers\InstrumentController::class, 'index'])->name('Instrumentsview');
-Route::get('new-Instrument',[\App\Http\Controllers\InstrumentController::class, 'viewNewInstrument'])->name('newInst');
-Route::post('new-Instrument', [\App\Http\Controllers\InstrumentController::class, 'newinst'])->name('postnewInst');
-Route::post('flipconnection/{id}', [\App\Http\Controllers\InstrumentController::class, 'flipconnection'])->name('flipconnection');
-Route::get('Instrument/{id}', [\App\Http\Controllers\InstrumentController::class, 'instdetails'])->name('instrumentDetails');
+Route::get('Instruments',[\App\Http\Controllers\InstController::class, 'index'])->name('Instrumentsview');
+Route::get('new-Instrument', [\App\Http\Controllers\InstController::class, 'viewNewInstrument'])->name('newInst');
+Route::post('new-Instrument', [\App\Http\Controllers\InstController::class, 'newinst'])->name('postnewInst');
+Route::post('flipconnection/{id}', [\App\Http\Controllers\InstController::class, 'flipconnection'])->name('flipconnection');
+Route::get('Instrument/{id}', [\App\Http\Controllers\InstController::class, 'instdetails'])->name('instrumentDetails');
