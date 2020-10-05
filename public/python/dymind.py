@@ -7,7 +7,7 @@ from threading import Timer
 import socket
 py3 = True
 
-sys.stdout = open("test.txt", "w+")
+sys.stdout = open("DymindDF50.txt", "a+")
 
 class RepeatedTimer(object):
     def __init__(self, interval, function, *args, **kwargs):
@@ -36,21 +36,20 @@ class RepeatedTimer(object):
 
 
 class looper():
-
-    # initialization which inherits the threading functionality and the instrument instance
+    # initialization which inherets the threading functionality and the toploevel one instance
     def __init__(self, main_win):
         self.main_win = main_win
 
-    def makeHeader(self, type):
-        return b'MSH|' + b'^~\&' + 7 * b'|' + type + b'|1|P|2.3.1||||||ASCII|||\r'
+    def makeHeader(self, type,control_id):
+        return b'MSH|' + b'^~\&' + 7 * b'|' + type + b'|'+control_id+b'|P|2.3.1||||||ASCII|||\r'
 
-    def MSA(self):
-        return b'MSA|AA|1|Message accepted|||0|\r'
+    def MSA(self,control_id):
+        return b'MSA|AA|'+control_id+b'\r'
 
     def ERR(self, code=b'0'):
         return b'ERR|' + code + b'|\r'
 
-    def QAK(self,state = b'OK'):
+    def QAK(self, state=b'OK'):
         return b'QAK|SR|' + state + b'|\r'
 
     def QRD(self):
@@ -61,49 +60,56 @@ class looper():
 
     #  tries to accept a client on the connection socket and if succeed then call handler
     def run(self):
-        print('looper-run: started')
         while True:
-            if self.main_win.checkstatus() != 'on':
-                print('looper-run: going out due status')
-                return
             self.main_win.show(
-                'looper-run-server : accepting ' + 'server: ' + str((self.main_win.ip, self.main_win.port)))
+                '\n\nserver : accepting' + '\nserver: ' + str((self.main_win.ip, self.main_win.port)))
             try:
-                print('loopser-run: waiting for client')
                 self.cliant, self.cliantAddress = self.main_win.connection.accept()
             except:
-                self.main_win.show('looper-run-server: forced to close before connection')
+                self.main_win.show('forced to close before connection')
                 return
-            print('looper-run: heading to handler')
-            self.main_win.show('looper-run-server: client detected' + str(self.cliantAddress))
+            self.main_win.show('\nserver: client detected' + str(self.cliantAddress))
             self.handler()
 
     # keeps the connection open with the client and close if the client wats to
     # and recieves messages and handle them accordingly
     def handler(self):
-        self.data = b''
         try:
             while True:
-                self.main_win.show('handler: in waiting' + str(self.cliant))
+                # after establishing connection the handler start waiting for TCP messages
+                self.main_win.show('\nhandler: in waiting' + str(self.cliant))
+                # tries to recieve a message with maximum of 8KByte
                 self.data = self.cliant.recv(8192)
-                self.main_win.checkstatus()
+                self.main_win.show('\nhandler: ' + str(self.data))
+                # if the message was '\n' then the client would like to close the TCP connection
                 if not self.data:
-                    self.main_win.show('handler: disconnected due instrument request')
+                    self.main_win.show('\nhandler: disconnected')
                     self.cliant.close()
                     return
-                self.main_win.show('handler: ' + str(self.data))
+                x = self.data.split(b'/r')
+                # print(x)
+                # if OUL in DATA recieved then this message is a result message
                 if b'ORU' in self.data:
                     self.oru()
+                # if QRY in DATA then its clearly a query
+                # elif b'QRY' in self.data:
+                #     self.qry()
         except ConnectionResetError:
-            self.main_win.err('ERR','handler: ERROR, disconnected, ConnectionResetError')
-            return
-        except ConnectionAbortedError as e:
-            self.main_win.err('ERR','handler: ERROR, disconnected, ConnectionAbortedError')
-            return
+            self.main_win.show('\nhandler: ERROR, disconnected')
+        except ConnectionAbortedError:
+            self.main_win.show('\nhandler: ERROR, disconnected')
+        finally:
+            self.cliant.close()
+            self.main_win.show('\nhandler: exiting handler')
+
+    def accept(self,control_id,ack = b''):
+        self.cliant.send(b'\x0b'+self.makeHeader(b'ACK^R01',control_id) + self.MSA(control_id) + b'\x1c\r')
 
     # accepts message and extract the barcode and the results from the ORU message
     def oru(self):
-        self.accept(b'^R01')
+        segments = [segment.split(b'|') for segment in self.data.split(b'\r') if segment]
+        control_id = segments[0][9]
+        self.accept(ack=b'^R21',control_id = control_id)
         segments = [segment.split(b'|') for segment in self.data.split(b'\r') if segment]
         patient = {}
         id = segments[3][3].decode()
@@ -149,61 +155,9 @@ class looper():
             patient['P-LCR'] = segments[29][5].decode()
         if segments[30][5]:
             patient['P-LCC'] = segments[30][5].decode()
-
-        test = {}
-        test['result'] = str(patient)
-        test['id'] = id
-        for i in test:
-            print(i + ':' + test[i])
+        test = {'result': patient, 'id': id}
         self.main_win.show(str(test))
         self.main_win.writer(test)
-
-    # send an acception response
-    def accept(self,ack = b''):
-        self.cliant.send(b'\x0b'+self.makeHeader(b'ACK^R01') + self.MSA() + self.ERR() + self.QAK() + b'\x1c\r')
-        self.main_win.show('handler: accepted... ' + str(self.makeHeader(b'ACK') + b'\rMSA|AA|2|||||\r'))
-
-    # extract barcode
-    # gets the data by get sample parameters functioin
-    # finally call the reply function
-    # def qry(self):
-    #     patient_barCode = self.data.split(b'\r')[1].split(b'|')[8]
-    #     if patient_barCode:
-    #         patient = self.grap_patient(patient_barCode.decode())
-    #         self.reply(patient)
-    #     else:
-    #         self.reply('')
-    #
-    # # gets a sample required test using the get sample parameters function
-    # def grap_patient(self,barcode):
-    #     patient = {}
-    #     patient['barcode'] = barcode.encode()
-    #     patient['tests'] = [self.main_win.globalcode2localcode[i['code']].encode() for i in self.main_win.getSampleParameters(barcode)]
-    #     return patient
-    #     # patient info must be returned encoded.
-    #
-    # def reply(self, patient):
-    #     if patient:
-    #         massage = b'\x0b'+self.makeHeader(b'QCK^Q02') + self.MSA() + self.ERR() + self.QAK() + b'\x1c\r'
-    #         self.cliant.send(massage)
-    #         massage = b'\x0b' + self.makeHeader(b'DSR^Q03') + self.MSA() + self.ERR()+ self.QAK() + self.QRD() + self.QRF()
-    #         dictionary = {
-    #             4:  b'', 5: b'', 21: patient['barCode'], 26: b''
-    #             , 6: b'', 24: b'N'
-    #             }
-    #         for i in range(1,29):
-    #             if i in dictionary:
-    #                 massage += b'DSP|' + str(i).encode() + b'||' + dictionary[i] + b'|||\r'
-    #             else:
-    #                 massage += b'DSP|' + str(i).encode() + b'|||||\r'
-    #         for i in range(len(patient['tests'])):
-    #             massage += b'DSP|' + str(i+29).encode() + b'||' + patient['tests'][i] + b'^^^|||\r'
-    #         massage += b'DSC||\r\x1c\r'
-    #         print(massage)
-    #         self.cliant.send(massage)
-    #     else:
-    #         massage = b'\x0b' + self.makeHeader(b'DSR^Q02') + self.MSA() + self.ERR() + self.QAK(b'NF') + b'\x1c\r'
-    #         self.cliant.send(massage)
 
 class Instrument():
     device_name = 'AIA2000'
@@ -306,9 +260,11 @@ class Instrument():
     def testset(self, result):
         print('testset')
         obj = {'sample': result,'id':self.id}
-        x = requests.post(self.url + '/resultset', data=obj,timeout=self.requestIimeLimit)
+        print(obj)
+        x = requests.post(self.url + '/ResultSet', data=obj,timeout=self.requestIimeLimit)
         if x.status_code !=200:
-            print('uvalid status')
+            print(x.content.decode())
+            print('invalid status')
             self.err('nc')
 
     # upload the last test result and

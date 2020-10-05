@@ -9,11 +9,5 @@ $('.white').click(function (e) {
     }
 });
 setInterval(() => {
-    $.ajax({
-        type: "get",
-        url: "url",
-        data: "",
-    }).success(function () {
 
-    });
 }, 10);

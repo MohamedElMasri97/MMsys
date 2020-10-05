@@ -22,8 +22,8 @@ class CreateResultsTable extends Migration
             $table->foreign('sample_id')->references('id')->on('samples');
             $table->string('unit')->default('Undefinaed');
             $table->string('result');
-            $table->string('testName');
-            $table->string('testCode')->default('Undefined');
+            $table->string('testName')->default('Undefined');
+            $table->string('testCode');
             $table->string('sampleType')->default('Undefinaed');
             $table->string('abnormality')->default('Undefined');
             $table->string('range')->default('Undefined');

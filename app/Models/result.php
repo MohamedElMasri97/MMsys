@@ -11,11 +11,11 @@ class result extends Model
 
     public function Instrument()
     {
-        return $this->belongsTo('App\Models\Instrument');
+        return $this->belongsTo('App\Models\Instrument','instrument_id');
     }
 
     public function sample()
     {
-        return $this->belongsTo('App\Models\Sample');
+        return $this->belongsTo('App\Models\Sample', 'sample_id');
     }
 }

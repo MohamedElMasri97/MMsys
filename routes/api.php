@@ -20,7 +20,7 @@ Route::get('status/{id}', [\App\Http\Controllers\InstController::class, 'status'
 Route::get('getmessages/{id}', [\App\Http\Controllers\InstController::class, 'getmessages'])->name('getmessages');
 Route::post('status', [\App\Http\Controllers\InstController::class, 'updatestatus'])->name('updatestatus');
 Route::post('show', [\App\Http\Controllers\InstController::class, 'show'])->name('show');
-Route::post('resultset', [\App\Http\Controllers\InstController::class, 'resultset'])->name('resultset');
+Route::post('ResultSet', [\App\Http\Controllers\ResultController::class, 'resultset'])->name('resultset');
 Route::post('pid', [\App\Http\Controllers\InstController::class, 'pid'])->name('pid');
 
 Route::get('test',function(){

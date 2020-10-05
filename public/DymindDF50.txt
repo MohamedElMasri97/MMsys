@@ -1,0 +1,113 @@
+main args
+C:\Users\salem\BCProject\public\python\dymind.py
+auto
+5600
+http://localhost:8000/api
+1
+http://165.22.27.138/lims/v1/sample/tests
+starting
+http://localhost:8000/api/pid
+{'id': '1', 'pid': 10424}
+b'{"status":"on"}'
+showing: starting
+{'status': 'on'}
+running
+run: run is going and status is on
+showing: run: connecting
+{'status': 'on'}
+almost binding
+binded
+showing: get-connection: connection has been created
+{'status': 'on'}
+run: almost starting
+showing: 
+
+server : accepting
+server: ('192.168.1.3', '5600')
+{'status': 'on'}
+showing: 
+server: client detected('192.168.1.14', 49494)
+{'status': 'on'}
+showing: 
+handler: in waiting<socket.socket fd=700, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('192.168.1.3', 5600), raddr=('192.168.1.14', 49494)>
+{'status': 'on'}
+showing: 
+handler: b'\x0bMSH|^~\\&|DF5x|Dymind|||20201005142709||ORU^R01|20200630_103638_736|P|2.3.1||||||UNICODE\rPID|1\rPV1|1\rOBR|1||5051|01001^Automated Count^99MRC||20200630103638|20200630103638|||||||20200630103638||||||||||HM||||||||service\rOBX|1|IS|02001^Take Mode^99MRC||O||||||F\rOBX|2|IS|02002^Blood Mode^99MRC||W||||||F\rOBX|3|IS|02003^Test Mode^99MRC||CBC+DIFF||||||F\rOBX|4|NM|30525-0^Age^LN|||yr|||||F\rOBX|5|IS|09001^Remark^99MRC||||||||F\rOBX|6|IS|03001^Ref Group^99MRC||General||||||F\rOBX|7|NM|6690-2^WBC^LN||6.79|10*3/uL|3.50-9.50|~N|||F\rOBX|8|NM|770-8^NEU%^LN||48.7|%|40.0-75.0|~N|||F\rOBX|9|NM|736-9^LYM%^LN||25.9|%|20.0-50.0|~N|||F\rOBX|10|NM|5905-5^MON%^LN||19.9|%|3.0-10.0|H~A|||F\rOBX|11|NM|713-8^EOS%^LN||4.5|%|0.4-8.0|~N|||F\rOBX|12|NM|706-2^BAS%^LN||1.0|%|0.0-1.0|~N|||F\rOBX|13|NM|751-8^NEU#^LN||3.30|10*3/uL|1.80-6.30|~N|||F\rOBX|14|NM|731-0^LYM#^LN||1.76|10*3/uL|1.10-3.20|~N|||F\rOBX|15|NM|742-7^MON#^LN||1.35|10*3/uL|0.10-0.60|H~A|||F\rOBX|16|NM|711-2^EOS#^LN||0.31|10*3/uL|0.02-0.52|~N|||F\rOBX|17|NM|704-7^BAS#^LN||0.07|10*3/uL|0.00-0.06|H~A|||F\rOBX|18|NM|26477-0^*ALY#^LN||1.13|10*3/uL|0.00-0.20|H~A|||F\rOBX|19|NM|13046-8^*ALY%^LN||16.6|%|0.0-2.0|H~A|||F\rOBX|20|NM|11001^*LIC#^99MRC||0.21|10*3/uL|0.00-0.20|H~A|||F\rOBX|21|NM|11002^*LIC%^99MRC||3.0|%|0.0-2.5|H~A|||F\rOBX|22|NM|789-8^RBC^LN||5.74|10*6/uL|3.80-5.80|~A|||F\rOBX|23|NM|718-7^HGB^LN||15.7|g/dL|11.5-17.5|~A|||F\rOBX|24|NM|4544-3^HCT^LN||53.5|%|35.0-50.0|H~A|||F\rOBX|25|NM|787-2^MCV^LN||93.3|fL|82.0-100.0|~A|||F\rOBX|26|NM|785-6^MCH^LN||27.3|pg|27.0-34.0|~A|||F\rOBX|27|NM|786-4^MCHC^LN||29.3|g/dL|31.6-35.4|L~A|||F\rOBX|28|NM|788-0^RDW-CV^LN||13.0|%|11.0-16.0|~A|||F\rOBX|29|NM|21000-5^RDW-SD^LN||50.1|fL|35.0-56.0|~A|||F\rOBX|30|NM|777-3^PLT^LN||304|10*3/uL|125-350|~A|||F\rOBX|31|NM|32623-1^MPV^LN||12.0|fL|6.5-12.0|~A|||F\rOBX|32|NM|32207-3^PDW^LN||21.1|fL|9.0-17.0|H~A|||F\rOBX|33|NM|11003^PCT^99MRC||0.364|%|0.108-0.282|H~A|||F\rOBX|34|NM|48386-7^P-LCR^LN||53.2|%|11.0-45.0|H~A|||F\rOBX|35|NM|34167-7^P-LCC^LN||162|10*9/L|30-90|H~A|||F\rOBX|36|IS|17790-7^WBC Left Shift?^LN||T||||||F\rOBX|37|IS|34165-1^Imm Granulocytes?^LN||T||||||F\rOBX|38|IS|15192-8^Atypical Lymphs?^LN||T||||||F\rOBX|39|IS|13204^HGB Interfere^99MRC||T||||||F\rOBX|40|IS|13401^PLT Abnormal Distribution^99MRC||T||||||F\r\x1c\r'
+{'status': 'on'}
+showing: {'result': {'WBC': '6.79', 'lymPer': '48.7', 'granPer': '25.9', 'midPer': '19.9', 'LYM': '4.5', 'gran': '1.0', 'mid': '3.30', 'RBC': '1.76', 'HGB': '1.35', 'HCT': '0.31', 'MCV': '0.07', 'MCH': '1.13', 'MCHC': '16.6', 'RDW-CV': '0.21', 'RDW-SD': '3.0', 'PLT': '5.74', 'MPV': '15.7', 'PDW': '53.5', 'PCT': '93.3', 'P-LCR': '27.3', 'P-LCC': '29.3'}, 'id': '5051'}
+{'status': 'on'}
+writer
+testset
+{'sample': {'result': {'WBC': '6.79', 'lymPer': '48.7', 'granPer': '25.9', 'midPer': '19.9', 'LYM': '4.5', 'gran': '1.0', 'mid': '3.30', 'RBC': '1.76', 'HGB': '1.35', 'HCT': '0.31', 'MCV': '0.07', 'MCH': '1.13', 'MCHC': '16.6', 'RDW-CV': '0.21', 'RDW-SD': '3.0', 'PLT': '5.74', 'MPV': '15.7', 'PDW': '53.5', 'PCT': '93.3', 'P-LCR': '27.3', 'P-LCC': '29.3'}, 'id': '5051'}, 'id': '1'}
+showing: 
+handler: in waiting<socket.socket fd=700, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('192.168.1.3', 5600), raddr=('192.168.1.14', 49494)>
+{'status': 'on'}
+showing: 
+handler: b'\x0bMSH|^~\\&|DF5x|Dymind|||20201005142713||ORU^R01|20200630_103236_440|P|2.3.1||||||UNICODE\rPID|1\rPV1|1\rOBR|1||5050|01001^Automated Count^99MRC||20200630103236|20200630103236|||||||20200630103236||||||||||HM||||||||service\rOBX|1|IS|02001^Take Mode^99MRC||O||||||F\rOBX|2|IS|02002^Blood Mode^99MRC||W||||||F\rOBX|3|IS|02003^Test Mode^99MRC||CBC+DIFF||||||F\rOBX|4|NM|30525-0^Age^LN|||yr|||||F\rOBX|5|IS|09001^Remark^99MRC||||||||F\rOBX|6|IS|03001^Ref Group^99MRC||General||||||F\rOBX|7|NM|6690-2^WBC^LN||6.83|10*3/uL|3.50-9.50|~N|||F\rOBX|8|NM|770-8^NEU%^LN||46.9|%|40.0-75.0|~N|||F\rOBX|9|NM|736-9^LYM%^LN||28.7|%|20.0-50.0|~N|||F\rOBX|10|NM|5905-5^MON%^LN||19.6|%|3.0-10.0|H~A|||F\rOBX|11|NM|713-8^EOS%^LN||3.9|%|0.4-8.0|~N|||F\rOBX|12|NM|706-2^BAS%^LN||0.9|%|0.0-1.0|~N|||F\rOBX|13|NM|751-8^NEU#^LN||3.20|10*3/uL|1.80-6.30|~N|||F\rOBX|14|NM|731-0^LYM#^LN||1.96|10*3/uL|1.10-3.20|~N|||F\rOBX|15|NM|742-7^MON#^LN||1.34|10*3/uL|0.10-0.60|H~A|||F\rOBX|16|NM|711-2^EOS#^LN||0.27|10*3/uL|0.02-0.52|~N|||F\rOBX|17|NM|704-7^BAS#^LN||0.06|10*3/uL|0.00-0.06|~N|||F\rOBX|18|NM|26477-0^*ALY#^LN||1.33|10*3/uL|0.00-0.20|H~A|||F\rOBX|19|NM|13046-8^*ALY%^LN||19.5|%|0.0-2.0|H~A|||F\rOBX|20|NM|11001^*LIC#^99MRC||0.20|10*3/uL|0.00-0.20|~N|||F\rOBX|21|NM|11002^*LIC%^99MRC||3.0|%|0.0-2.5|H~A|||F\rOBX|22|NM|789-8^RBC^LN||5.68|10*6/uL|3.80-5.80|~A|||F\rOBX|23|NM|718-7^HGB^LN||15.4|g/dL|11.5-17.5|~A|||F\rOBX|24|NM|4544-3^HCT^LN||52.9|%|35.0-50.0|H~A|||F\rOBX|25|NM|787-2^MCV^LN||93.1|fL|82.0-100.0|~A|||F\rOBX|26|NM|785-6^MCH^LN||27.2|pg|27.0-34.0|~A|||F\rOBX|27|NM|786-4^MCHC^LN||29.2|g/dL|31.6-35.4|L~A|||F\rOBX|28|NM|788-0^RDW-CV^LN||13.1|%|11.0-16.0|~A|||F\rOBX|29|NM|21000-5^RDW-SD^LN||50.4|fL|35.0-56.0|~A|||F\rOBX|30|NM|777-3^PLT^LN||343|10*3/uL|125-350|~A|||F\rOBX|31|NM|32623-1^MPV^LN||11.6|fL|6.5-12.0|~A|||F\rOBX|32|NM|32207-3^PDW^LN||20.5|fL|9.0-17.0|H~A|||F\rOBX|33|NM|11003^PCT^99MRC||0.400|%|0.108-0.282|H~A|||F\rOBX|34|NM|48386-7^P-LCR^LN||50.6|%|11.0-45.0|H~A|||F\rOBX|35|NM|34167-7^P-LCC^LN||174|10*9/L|30-90|H~A|||F\rOBX|36|IS|17790-7^WBC Left Shift?^LN||T||||||F\rOBX|37|IS|34165-1^Imm Granulocytes?^LN||T||||||F\rOBX|38|IS|15192-8^Atypical Lymphs?^LN||T||||||F\rOBX|39|IS|13204^HGB Interfere^99MRC||T||||||F\rOBX|40|IS|13401^PLT Abnormal Distribution^99MRC||T||||||F\r\x1c\r'
+{'status': 'on'}
+showing: {'result': {'WBC': '6.83', 'lymPer': '46.9', 'granPer': '28.7', 'midPer': '19.6', 'LYM': '3.9', 'gran': '0.9', 'mid': '3.20', 'RBC': '1.96', 'HGB': '1.34', 'HCT': '0.27', 'MCV': '0.06', 'MCH': '1.33', 'MCHC': '19.5', 'RDW-CV': '0.20', 'RDW-SD': '3.0', 'PLT': '5.68', 'MPV': '15.4', 'PDW': '52.9', 'PCT': '93.1', 'P-LCR': '27.2', 'P-LCC': '29.2'}, 'id': '5050'}
+{'status': 'on'}
+writer
+testset
+{'sample': {'result': {'WBC': '6.83', 'lymPer': '46.9', 'granPer': '28.7', 'midPer': '19.6', 'LYM': '3.9', 'gran': '0.9', 'mid': '3.20', 'RBC': '1.96', 'HGB': '1.34', 'HCT': '0.27', 'MCV': '0.06', 'MCH': '1.33', 'MCHC': '19.5', 'RDW-CV': '0.20', 'RDW-SD': '3.0', 'PLT': '5.68', 'MPV': '15.4', 'PDW': '52.9', 'PCT': '93.1', 'P-LCR': '27.2', 'P-LCC': '29.2'}, 'id': '5050'}, 'id': '1'}
+showing: 
+handler: in waiting<socket.socket fd=700, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('192.168.1.3', 5600), raddr=('192.168.1.14', 49494)>
+{'status': 'on'}
+showing: 
+handler: b'\x0bMSH|^~\\&|DF5x|Dymind|||20201005142723||ORU^R01|20200630_102754_911|P|2.3.1||||||UNICODE\rPID|1\rPV1|1\rOBR|1||5049|01001^Automated Count^99MRC||20200630102754|20200630102754|||||||20200630102754||||||||||HM||||||||service\rOBX|1|IS|02001^Take Mode^99MRC||O||||||F\rOBX|2|IS|02002^Blood Mode^99MRC||W||||||F\rOBX|3|IS|02003^Test Mode^99MRC||CBC+DIFF||||||F\rOBX|4|NM|30525-0^Age^LN|||yr|||||F\rOBX|5|IS|09001^Remark^99MRC||||||||F\rOBX|6|IS|03001^Ref Group^99MRC||General||||||F\rOBX|7|NM|6690-2^WBC^LN||6.99|10*3/uL|3.50-9.50|~N|||F\rOBX|8|NM|770-8^NEU%^LN||48.0|%|40.0-75.0|~N|||F\rOBX|9|NM|736-9^LYM%^LN||26.0|%|20.0-50.0|~N|||F\rOBX|10|NM|5905-5^MON%^LN||20.7|%|3.0-10.0|H~A|||F\rOBX|11|NM|713-8^EOS%^LN||4.6|%|0.4-8.0|~N|||F\rOBX|12|NM|706-2^BAS%^LN||0.7|%|0.0-1.0|~N|||F\rOBX|13|NM|751-8^NEU#^LN||3.35|10*3/uL|1.80-6.30|~N|||F\rOBX|14|NM|731-0^LYM#^LN||1.82|10*3/uL|1.10-3.20|~N|||F\rOBX|15|NM|742-7^MON#^LN||1.45|10*3/uL|0.10-0.60|H~A|||F\rOBX|16|NM|711-2^EOS#^LN||0.32|10*3/uL|0.02-0.52|~N|||F\rOBX|17|NM|704-7^BAS#^LN||0.05|10*3/uL|0.00-0.06|~N|||F\rOBX|18|NM|26477-0^*ALY#^LN||1.18|10*3/uL|0.00-0.20|H~A|||F\rOBX|19|NM|13046-8^*ALY%^LN||16.9|%|0.0-2.0|H~A|||F\rOBX|20|NM|11001^*LIC#^99MRC||0.21|10*3/uL|0.00-0.20|H~A|||F\rOBX|21|NM|11002^*LIC%^99MRC||3.1|%|0.0-2.5|H~A|||F\rOBX|22|NM|789-8^RBC^LN||5.71|10*6/uL|3.80-5.80|~A|||F\rOBX|23|NM|718-7^HGB^LN||15.5|g/dL|11.5-17.5|~A|||F\rOBX|24|NM|4544-3^HCT^LN||53.0|%|35.0-50.0|H~A|||F\rOBX|25|NM|787-2^MCV^LN||92.8|fL|82.0-100.0|~A|||F\rOBX|26|NM|785-6^MCH^LN||27.2|pg|27.0-34.0|~A|||F\rOBX|27|NM|786-4^MCHC^LN||29.3|g/dL|31.6-35.4|L~A|||F\rOBX|28|NM|788-0^RDW-CV^LN||13.0|%|11.0-16.0|~A|||F\rOBX|29|NM|21000-5^RDW-SD^LN||50.0|fL|35.0-56.0|~A|||F\rOBX|30|NM|777-3^PLT^LN||349|10*3/uL|125-350|~A|||F\rOBX|31|NM|32623-1^MPV^LN||11.8|fL|6.5-12.0|~A|||F\rOBX|32|NM|32207-3^PDW^LN||21.6|fL|9.0-17.0|H~A|||F\rOBX|33|NM|11003^PCT^99MRC||0.411|%|0.108-0.282|H~A|||F\rOBX|34|NM|48386-7^P-LCR^LN||51.8|%|11.0-45.0|H~A|||F\rOBX|35|NM|34167-7^P-LCC^LN||181|10*9/L|30-90|H~A|||F\rOBX|36|IS|17790-7^WBC Left Shift?^LN||T||||||F\rOBX|37|IS|34165-1^Imm Granulocytes?^LN||T||||||F\rOBX|38|IS|15192-8^Atypical Lymphs?^LN||T||||||F\rOBX|39|IS|13204^HGB Interfere^99MRC||T||||||F\rOBX|40|IS|13401^PLT Abnormal Distribution^99MRC||T||||||F\r\x1c\r'main args
+C:\Users\salem\BCProject\public\python\dymind.py
+auto
+5600
+http://localhost:8000/api
+1
+http://165.22.27.138/lims/v1/sample/tests
+starting
+http://localhost:8000/api/pid
+{'id': '1', 'pid': 12072}
+b'{"status":"on"}'
+showing: starting
+{'status': 'on'}
+running
+run: run is going and status is on
+showing: run: connecting
+{'status': 'on'}
+almost binding
+binded
+showing: get-connection: connection has been created
+{'status': 'on'}
+run: almost starting
+showing: 
+
+server : accepting
+server: ('192.168.1.3', '5600')
+{'status': 'on'}
+showing: 
+server: client detected('192.168.1.14', 49495)
+{'status': 'on'}
+showing: 
+handler: in waiting<socket.socket fd=720, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('192.168.1.3', 5600), raddr=('192.168.1.14', 49495)>
+{'status': 'on'}
+showing: 
+handler: b'\x0bMSH|^~\\&|DF5x|Dymind|||20201005143353||ORU^R01|20200630_103638_736|P|2.3.1||||||UNICODE\rPID|1\rPV1|1\rOBR|1||5051|01001^Automated Count^99MRC||20200630103638|20200630103638|||||||20200630103638||||||||||HM||||||||service\rOBX|1|IS|02001^Take Mode^99MRC||O||||||F\rOBX|2|IS|02002^Blood Mode^99MRC||W||||||F\rOBX|3|IS|02003^Test Mode^99MRC||CBC+DIFF||||||F\rOBX|4|NM|30525-0^Age^LN|||yr|||||F\rOBX|5|IS|09001^Remark^99MRC||||||||F\rOBX|6|IS|03001^Ref Group^99MRC||General||||||F\rOBX|7|NM|6690-2^WBC^LN||6.79|10*3/uL|3.50-9.50|~N|||F\rOBX|8|NM|770-8^NEU%^LN||48.7|%|40.0-75.0|~N|||F\rOBX|9|NM|736-9^LYM%^LN||25.9|%|20.0-50.0|~N|||F\rOBX|10|NM|5905-5^MON%^LN||19.9|%|3.0-10.0|H~A|||F\rOBX|11|NM|713-8^EOS%^LN||4.5|%|0.4-8.0|~N|||F\rOBX|12|NM|706-2^BAS%^LN||1.0|%|0.0-1.0|~N|||F\rOBX|13|NM|751-8^NEU#^LN||3.30|10*3/uL|1.80-6.30|~N|||F\rOBX|14|NM|731-0^LYM#^LN||1.76|10*3/uL|1.10-3.20|~N|||F\rOBX|15|NM|742-7^MON#^LN||1.35|10*3/uL|0.10-0.60|H~A|||F\rOBX|16|NM|711-2^EOS#^LN||0.31|10*3/uL|0.02-0.52|~N|||F\rOBX|17|NM|704-7^BAS#^LN||0.07|10*3/uL|0.00-0.06|H~A|||F\rOBX|18|NM|26477-0^*ALY#^LN||1.13|10*3/uL|0.00-0.20|H~A|||F\rOBX|19|NM|13046-8^*ALY%^LN||16.6|%|0.0-2.0|H~A|||F\rOBX|20|NM|11001^*LIC#^99MRC||0.21|10*3/uL|0.00-0.20|H~A|||F\rOBX|21|NM|11002^*LIC%^99MRC||3.0|%|0.0-2.5|H~A|||F\rOBX|22|NM|789-8^RBC^LN||5.74|10*6/uL|3.80-5.80|~A|||F\rOBX|23|NM|718-7^HGB^LN||15.7|g/dL|11.5-17.5|~A|||F\rOBX|24|NM|4544-3^HCT^LN||53.5|%|35.0-50.0|H~A|||F\rOBX|25|NM|787-2^MCV^LN||93.3|fL|82.0-100.0|~A|||F\rOBX|26|NM|785-6^MCH^LN||27.3|pg|27.0-34.0|~A|||F\rOBX|27|NM|786-4^MCHC^LN||29.3|g/dL|31.6-35.4|L~A|||F\rOBX|28|NM|788-0^RDW-CV^LN||13.0|%|11.0-16.0|~A|||F\rOBX|29|NM|21000-5^RDW-SD^LN||50.1|fL|35.0-56.0|~A|||F\rOBX|30|NM|777-3^PLT^LN||304|10*3/uL|125-350|~A|||F\rOBX|31|NM|32623-1^MPV^LN||12.0|fL|6.5-12.0|~A|||F\rOBX|32|NM|32207-3^PDW^LN||21.1|fL|9.0-17.0|H~A|||F\rOBX|33|NM|11003^PCT^99MRC||0.364|%|0.108-0.282|H~A|||F\rOBX|34|NM|48386-7^P-LCR^LN||53.2|%|11.0-45.0|H~A|||F\rOBX|35|NM|34167-7^P-LCC^LN||162|10*9/L|30-90|H~A|||F\rOBX|36|IS|17790-7^WBC Left Shift?^LN||T||||||F\rOBX|37|IS|34165-1^Imm Granulocytes?^LN||T||||||F\rOBX|38|IS|15192-8^Atypical Lymphs?^LN||T||||||F\rOBX|39|IS|13204^HGB Interfere^99MRC||T||||||F\rOBX|40|IS|13401^PLT Abnormal Distribution^99MRC||T||||||F\r\x1c\r'
+{'status': 'on'}
+showing: {'result': {'WBC': '6.79', 'lymPer': '48.7', 'granPer': '25.9', 'midPer': '19.9', 'LYM': '4.5', 'gran': '1.0', 'mid': '3.30', 'RBC': '1.76', 'HGB': '1.35', 'HCT': '0.31', 'MCV': '0.07', 'MCH': '1.13', 'MCHC': '16.6', 'RDW-CV': '0.21', 'RDW-SD': '3.0', 'PLT': '5.74', 'MPV': '15.7', 'PDW': '53.5', 'PCT': '93.3', 'P-LCR': '27.3', 'P-LCC': '29.3'}, 'id': '5051'}
+{'status': 'on'}
+writer
+testset
+{'sample': {'result': {'WBC': '6.79', 'lymPer': '48.7', 'granPer': '25.9', 'midPer': '19.9', 'LYM': '4.5', 'gran': '1.0', 'mid': '3.30', 'RBC': '1.76', 'HGB': '1.35', 'HCT': '0.31', 'MCV': '0.07', 'MCH': '1.13', 'MCHC': '16.6', 'RDW-CV': '0.21', 'RDW-SD': '3.0', 'PLT': '5.74', 'MPV': '15.7', 'PDW': '53.5', 'PCT': '93.3', 'P-LCR': '27.3', 'P-LCC': '29.3'}, 'id': '5051'}, 'id': '1'}
+showing: 
+handler: in waiting<socket.socket fd=720, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('192.168.1.3', 5600), raddr=('192.168.1.14', 49495)>
+{'status': 'on'}
+showing: 
+handler: b'\x0bMSH|^~\\&|DF5x|Dymind|||20201005143357||ORU^R01|20200630_103236_440|P|2.3.1||||||UNICODE\rPID|1\rPV1|1\rOBR|1||5050|01001^Automated Count^99MRC||20200630103236|20200630103236|||||||20200630103236||||||||||HM||||||||service\rOBX|1|IS|02001^Take Mode^99MRC||O||||||F\rOBX|2|IS|02002^Blood Mode^99MRC||W||||||F\rOBX|3|IS|02003^Test Mode^99MRC||CBC+DIFF||||||F\rOBX|4|NM|30525-0^Age^LN|||yr|||||F\rOBX|5|IS|09001^Remark^99MRC||||||||F\rOBX|6|IS|03001^Ref Group^99MRC||General||||||F\rOBX|7|NM|6690-2^WBC^LN||6.83|10*3/uL|3.50-9.50|~N|||F\rOBX|8|NM|770-8^NEU%^LN||46.9|%|40.0-75.0|~N|||F\rOBX|9|NM|736-9^LYM%^LN||28.7|%|20.0-50.0|~N|||F\rOBX|10|NM|5905-5^MON%^LN||19.6|%|3.0-10.0|H~A|||F\rOBX|11|NM|713-8^EOS%^LN||3.9|%|0.4-8.0|~N|||F\rOBX|12|NM|706-2^BAS%^LN||0.9|%|0.0-1.0|~N|||F\rOBX|13|NM|751-8^NEU#^LN||3.20|10*3/uL|1.80-6.30|~N|||F\rOBX|14|NM|731-0^LYM#^LN||1.96|10*3/uL|1.10-3.20|~N|||F\rOBX|15|NM|742-7^MON#^LN||1.34|10*3/uL|0.10-0.60|H~A|||F\rOBX|16|NM|711-2^EOS#^LN||0.27|10*3/uL|0.02-0.52|~N|||F\rOBX|17|NM|704-7^BAS#^LN||0.06|10*3/uL|0.00-0.06|~N|||F\rOBX|18|NM|26477-0^*ALY#^LN||1.33|10*3/uL|0.00-0.20|H~A|||F\rOBX|19|NM|13046-8^*ALY%^LN||19.5|%|0.0-2.0|H~A|||F\rOBX|20|NM|11001^*LIC#^99MRC||0.20|10*3/uL|0.00-0.20|~N|||F\rOBX|21|NM|11002^*LIC%^99MRC||3.0|%|0.0-2.5|H~A|||F\rOBX|22|NM|789-8^RBC^LN||5.68|10*6/uL|3.80-5.80|~A|||F\rOBX|23|NM|718-7^HGB^LN||15.4|g/dL|11.5-17.5|~A|||F\rOBX|24|NM|4544-3^HCT^LN||52.9|%|35.0-50.0|H~A|||F\rOBX|25|NM|787-2^MCV^LN||93.1|fL|82.0-100.0|~A|||F\rOBX|26|NM|785-6^MCH^LN||27.2|pg|27.0-34.0|~A|||F\rOBX|27|NM|786-4^MCHC^LN||29.2|g/dL|31.6-35.4|L~A|||F\rOBX|28|NM|788-0^RDW-CV^LN||13.1|%|11.0-16.0|~A|||F\rOBX|29|NM|21000-5^RDW-SD^LN||50.4|fL|35.0-56.0|~A|||F\rOBX|30|NM|777-3^PLT^LN||343|10*3/uL|125-350|~A|||F\rOBX|31|NM|32623-1^MPV^LN||11.6|fL|6.5-12.0|~A|||F\rOBX|32|NM|32207-3^PDW^LN||20.5|fL|9.0-17.0|H~A|||F\rOBX|33|NM|11003^PCT^99MRC||0.400|%|0.108-0.282|H~A|||F\rOBX|34|NM|48386-7^P-LCR^LN||50.6|%|11.0-45.0|H~A|||F\rOBX|35|NM|34167-7^P-LCC^LN||174|10*9/L|30-90|H~A|||F\rOBX|36|IS|17790-7^WBC Left Shift?^LN||T||||||F\rOBX|37|IS|34165-1^Imm Granulocytes?^LN||T||||||F\rOBX|38|IS|15192-8^Atypical Lymphs?^LN||T||||||F\rOBX|39|IS|13204^HGB Interfere^99MRC||T||||||F\rOBX|40|IS|13401^PLT Abnormal Distribution^99MRC||T||||||F\r\x1c\r'
+{'status': 'on'}
+showing: {'result': {'WBC': '6.83', 'lymPer': '46.9', 'granPer': '28.7', 'midPer': '19.6', 'LYM': '3.9', 'gran': '0.9', 'mid': '3.20', 'RBC': '1.96', 'HGB': '1.34', 'HCT': '0.27', 'MCV': '0.06', 'MCH': '1.33', 'MCHC': '19.5', 'RDW-CV': '0.20', 'RDW-SD': '3.0', 'PLT': '5.68', 'MPV': '15.4', 'PDW': '52.9', 'PCT': '93.1', 'P-LCR': '27.2', 'P-LCC': '29.2'}, 'id': '5050'}
+{'status': 'on'}
+writer
+testset
+{'sample': {'result': {'WBC': '6.83', 'lymPer': '46.9', 'granPer': '28.7', 'midPer': '19.6', 'LYM': '3.9', 'gran': '0.9', 'mid': '3.20', 'RBC': '1.96', 'HGB': '1.34', 'HCT': '0.27', 'MCV': '0.06', 'MCH': '1.33', 'MCHC': '19.5', 'RDW-CV': '0.20', 'RDW-SD': '3.0', 'PLT': '5.68', 'MPV': '15.4', 'PDW': '52.9', 'PCT': '93.1', 'P-LCR': '27.2', 'P-LCC': '29.2'}, 'id': '5050'}, 'id': '1'}
+showing: 
+handler: in waiting<socket.socket fd=720, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('192.168.1.3', 5600), raddr=('192.168.1.14', 49495)>
+{'status': 'on'}
+showing: 
+handler: b'\x0bMSH|^~\\&|DF5x|Dymind|||20201005143407||ORU^R01|20200630_102754_911|P|2.3.1||||||UNICODE\rPID|1\rPV1|1\rOBR|1||5049|01001^Automated Count^99MRC||20200630102754|20200630102754|||||||20200630102754||||||||||HM||||||||service\rOBX|1|IS|02001^Take Mode^99MRC||O||||||F\rOBX|2|IS|02002^Blood Mode^99MRC||W||||||F\rOBX|3|IS|02003^Test Mode^99MRC||CBC+DIFF||||||F\rOBX|4|NM|30525-0^Age^LN|||yr|||||F\rOBX|5|IS|09001^Remark^99MRC||||||||F\rOBX|6|IS|03001^Ref Group^99MRC||General||||||F\rOBX|7|NM|6690-2^WBC^LN||6.99|10*3/uL|3.50-9.50|~N|||F\rOBX|8|NM|770-8^NEU%^LN||48.0|%|40.0-75.0|~N|||F\rOBX|9|NM|736-9^LYM%^LN||26.0|%|20.0-50.0|~N|||F\rOBX|10|NM|5905-5^MON%^LN||20.7|%|3.0-10.0|H~A|||F\rOBX|11|NM|713-8^EOS%^LN||4.6|%|0.4-8.0|~N|||F\rOBX|12|NM|706-2^BAS%^LN||0.7|%|0.0-1.0|~N|||F\rOBX|13|NM|751-8^NEU#^LN||3.35|10*3/uL|1.80-6.30|~N|||F\rOBX|14|NM|731-0^LYM#^LN||1.82|10*3/uL|1.10-3.20|~N|||F\rOBX|15|NM|742-7^MON#^LN||1.45|10*3/uL|0.10-0.60|H~A|||F\rOBX|16|NM|711-2^EOS#^LN||0.32|10*3/uL|0.02-0.52|~N|||F\rOBX|17|NM|704-7^BAS#^LN||0.05|10*3/uL|0.00-0.06|~N|||F\rOBX|18|NM|26477-0^*ALY#^LN||1.18|10*3/uL|0.00-0.20|H~A|||F\rOBX|19|NM|13046-8^*ALY%^LN||16.9|%|0.0-2.0|H~A|||F\rOBX|20|NM|11001^*LIC#^99MRC||0.21|10*3/uL|0.00-0.20|H~A|||F\rOBX|21|NM|11002^*LIC%^99MRC||3.1|%|0.0-2.5|H~A|||F\rOBX|22|NM|789-8^RBC^LN||5.71|10*6/uL|3.80-5.80|~A|||F\rOBX|23|NM|718-7^HGB^LN||15.5|g/dL|11.5-17.5|~A|||F\rOBX|24|NM|4544-3^HCT^LN||53.0|%|35.0-50.0|H~A|||F\rOBX|25|NM|787-2^MCV^LN||92.8|fL|82.0-100.0|~A|||F\rOBX|26|NM|785-6^MCH^LN||27.2|pg|27.0-34.0|~A|||F\rOBX|27|NM|786-4^MCHC^LN||29.3|g/dL|31.6-35.4|L~A|||F\rOBX|28|NM|788-0^RDW-CV^LN||13.0|%|11.0-16.0|~A|||F\rOBX|29|NM|21000-5^RDW-SD^LN||50.0|fL|35.0-56.0|~A|||F\rOBX|30|NM|777-3^PLT^LN||349|10*3/uL|125-350|~A|||F\rOBX|31|NM|32623-1^MPV^LN||11.8|fL|6.5-12.0|~A|||F\rOBX|32|NM|32207-3^PDW^LN||21.6|fL|9.0-17.0|H~A|||F\rOBX|33|NM|11003^PCT^99MRC||0.411|%|0.108-0.282|H~A|||F\rOBX|34|NM|48386-7^P-LCR^LN||51.8|%|11.0-45.0|H~A|||F\rOBX|35|NM|34167-7^P-LCC^LN||181|10*9/L|30-90|H~A|||F\rOBX|36|IS|17790-7^WBC Left Shift?^LN||T||||||F\rOBX|37|IS|34165-1^Imm Granulocytes?^LN||T||||||F\rOBX|38|IS|15192-8^Atypical Lymphs?^LN||T||||||F\rOBX|39|IS|13204^HGB Interfere^99MRC||T||||||F\rOBX|40|IS|13401^PLT Abnormal Distribution^99MRC||T||||||F\r\x1c\r'
