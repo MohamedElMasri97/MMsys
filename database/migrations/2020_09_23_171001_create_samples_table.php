@@ -17,6 +17,7 @@ class CreateSamplesTable extends Migration
             $table->id();
             $table->string('barcode')->unique();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

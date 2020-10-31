@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Instrument extends Model
 {
     use HasFactory;
+    use SoftDeletes;
 
     public $fillable = [
         'name','refinstrument_id','serialport','netport','ip'
@@ -23,7 +25,7 @@ class Instrument extends Model
         return $this->belongsTo('App\Models\Refinstrument');
     }
 
-    public function samples()
+    public function results()
     {
         return $this->hasMany('App\Models\result');
     }
