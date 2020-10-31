@@ -24,10 +24,6 @@ class SoftdeleteOnInstruemnt extends Migration
         Schema::table('results', function (Blueprint $table) {
             $table->timestamp('deleted_at')->nullable();
         });
-
-        Schema::table('samples', function (Blueprint $table) {
-            $table->timestamp('deleted_at')->nullable();
-        });
     }
 
     /**
